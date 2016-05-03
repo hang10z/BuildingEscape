@@ -21,7 +21,8 @@ void UPositionReport::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UE_LOG(LogTemp, Warning, TEXT("Position Report Reporting For Play Start on Couch!"));
+	FString ObjectName = GetOwner()->GetName();		//Pointer to an actor, use the getName()
+	UE_LOG(LogTemp, Warning, TEXT("Position Report for %s"), *ObjectName);
 	
 }
 
