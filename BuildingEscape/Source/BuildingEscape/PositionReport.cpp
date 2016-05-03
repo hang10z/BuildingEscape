@@ -12,7 +12,7 @@ UPositionReport::UPositionReport()
 	bWantsBeginPlay = true;
 	PrimaryComponentTick.bCanEverTick = true;
 
-	// ...
+	UE_LOG(LogTemp, Warning, TEXT("Position Report Reporting For Duty on Couch!"));
 }
 
 
@@ -21,7 +21,7 @@ void UPositionReport::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	UE_LOG(LogTemp, Warning, TEXT("Position Report Reporting For Play Start on Couch!"));
 	
 }
 
