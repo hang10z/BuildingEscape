@@ -1,0 +1,44 @@
+// Copyright Kevin Taylor 2016
+
+#include "BuildingEscape.h"
+#include "OpenDoor.h"
+
+
+// Sets default values for this component's properties
+UOpenDoor::UOpenDoor()
+{
+	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
+	// off to improve performance if you don't need them.
+	bWantsBeginPlay = true;
+	PrimaryComponentTick.bCanEverTick = true;
+
+	// ...
+}
+
+
+// Called when the game starts
+void UOpenDoor::BeginPlay()
+{
+	Super::BeginPlay();
+
+	//Assign a variable to the object owner(the door)
+	AActor* Owner = GetOwner();
+
+	//Create a Rotation to be applied to the objects transform rotation
+	FRotator NewRotation = FRotator(0, -90.0f, 0);
+
+	//Set the new rotation to the door/object
+	Owner->SetActorRotation(NewRotation);
+	
+	
+}
+
+
+// Called every frame
+void UOpenDoor::TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction )
+{
+	Super::TickComponent( DeltaTime, TickType, ThisTickFunction );
+
+	// ...
+}
+
