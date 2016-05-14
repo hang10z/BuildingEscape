@@ -63,3 +63,5 @@ DerivedDataCache/*
 BuildingEscape/Content/StarterContent/
 BuildingEscape/Saved/
 BuildingEscape/Intermediate/
+BuildingEscape/Source/BuildingEscape/PlayTV.cpp
+BuildingEscape/Source/BuildingEscape/PlayTV.h
