@@ -19,6 +19,8 @@ public:
 	virtual void BeginPlay() override;
 
 	void OpenDoor();
+
+	void CloseDoor();
 	
 	// Called every frame
 	virtual void TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction ) override;
@@ -28,13 +30,18 @@ private:
 
 	//specify a property to set how far the door opens
 	//The UPROPERTY(VisibleAnywhere) allows this property to be visible in both blueprints and C++
-	UPROPERTY(VisibleAnywhere)
-	float OpenAngle = 90.0f;
+	//UPROPERTY(VisibleAnywhere)
+	//float OpenAngle = 90.0f;
 
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 
 	//UPROPERTY(EditAnywhere)
 	AActor* ActorThatOpens;		//Pawn inherits from actor
+
+	UPROPERTY(EditAnywhere)
+	float DoorCloseDelay = 1.0f;
+
+	float LastDoorOpenTime = 0.0f;
 	
 };

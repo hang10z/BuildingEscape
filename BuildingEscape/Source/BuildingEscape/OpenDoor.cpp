@@ -36,7 +36,17 @@ void UOpenDoor::OpenDoor()
 	Owner->SetActorRotation(NewRotation);
 }
 
+void UOpenDoor::CloseDoor()
+{
+	//Assign a variable to the object owner(the door)
+	AActor* Owner = GetOwner();
 
+	//Create a Rotation to be applied to the objects transform rotation
+	FRotator NewRotation = FRotator(0, 90.0f, 0);
+
+	//Set the new rotation to the door/object
+	Owner->SetActorRotation(NewRotation);
+}
 // Called every frame
 void UOpenDoor::TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction )
 {
@@ -48,9 +58,13 @@ void UOpenDoor::TickComponent( float DeltaTime, ELevelTick TickType, FActorCompo
 	{
 		//Open Door
 		OpenDoor();
+		LastDoorOpenTime = GetWorld()->GetTimeSeconds();
 	}
 	
-	
-	
+	//Check if its time to close the door.
+	if (GetWorld()->GetTimeSeconds() - LastDoorOpenTime > DoorCloseDelay)
+	{
+		CloseDoor();
+	}
 }
 
